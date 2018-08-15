@@ -21,12 +21,14 @@ ______________________
 1. An action represents an event
 2. Define an action for each event worth tracking
 3. Action is an object with a type and optional
- payload:
-  {
-     Action
-     type: 'TOGGLE_PRODUCT_CODE
-     payload: value
-  }
+
+
+     payload:
+      {
+        Action
+        type: 'TOGGLE_PRODUCT_CODE
+        payload: value
+      }
 
 3.  Reducer
  __________________________
@@ -51,12 +53,15 @@ __________________________________
 3. Call the dispatch method of the store
 4. Pass in the action to dispatch:
 
-this.store.dispatch( {
-      type: 'TOGGLE_PRODUCT_CODE,
-     payload: value
-   });
+
+        this.store.dispatch({
+            type: 'TOGGLE_PRODUCT_CODE,
+            payload: value
+        });
+
 
 5. Passed to all reducers
+
 
 5. Subscribing to the Store
 ____________________________________________

@@ -52,10 +52,11 @@ __________________________________
 3. Call the dispatch method of the store
 4. Pass in the action to dispatch:
 
-      this.store.dispatch({
+    this.store.dispatch({
         type:rentalActions.TOOGLE_INPUT_FORM,
         payload:this.isInputShown
-      })
+      });
+
 
 5. Passed to all reducers
 

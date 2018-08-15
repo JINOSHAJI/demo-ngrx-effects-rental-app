@@ -44,7 +44,7 @@ export class RentalsComponent implements OnInit {
       this.store.dispatch({
         type:rentalActions.TOOGLE_INPUT_FORM,
         payload:this.isInputShown
-      })
+      });
   };
   getRentals(): void {
     // this.store.select(state=> state.)

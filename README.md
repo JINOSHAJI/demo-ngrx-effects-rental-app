@@ -23,11 +23,10 @@ ______________________
 3. Action is an object with a type and optional
 
 
-     payload:
+      payload:
       {
-        Action
-        type: 'TOGGLE_PRODUCT_CODE
-        payload: value
+        Actiontype:rentalActions.TOOGLE_INPUT_FORM,
+        payload:this.isInputShown
       }
 
 3.  Reducer

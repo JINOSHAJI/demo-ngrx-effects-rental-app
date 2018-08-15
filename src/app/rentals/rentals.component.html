@@ -1,0 +1,101 @@
+<div style="text-align:center">
+  <h1>
+    Rentals List
+  </h1>
+</div>
+ <div  style="text-align: center">
+ 
+    <div class="form-horizontal">
+        <h2><a (click)="toggleInputForm()" >Input Rental info</a></h2>
+        <hr>
+    <div *ngIf="isInputShown" >
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Description">Description</label>
+            <div class="col-md-10">
+                <textarea cols="20" [(ngModel)]="rental.Description" id="Description" name="Description" rows="2"></textarea>
+                <span  data-valmsg-for="Description" ></span>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="control-label col-md-2" for="NumberOfRooms">Number Of Rooms</label>
+            <div class="col-md-10">
+                <input id="NumberOfRooms" [(ngModel)]="rental.NumberOfRooms" name="NumberOfRooms" type="number" value="">
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Address">Address</label>
+            <div class="col-md-10">
+                <textarea cols="20"  id="Address" [(ngModel)]="rental.Address" name="Address" rows="2"></textarea>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Price">Price</label>
+            <div class="col-md-10">
+                <input  id="Price" name="Price" type="text" [(ngModel)]="rental.Price">
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" (click)="saveRentalData()" value="Create" class="btn btn-default">
+            </div>
+        </div>
+    </div>
+   
+</div>
+ 
+ </div>
+<table class="table">
+  <thead class=" text-primary">
+      <th>
+          ID
+      </th>
+      <th>
+          Number Of Rooms
+      </th>
+      <th>
+          Price
+      </th>
+      <th>
+          Description
+      </th>
+      <th>
+          Address
+      </th>
+      <th>
+        Last adjustment
+      </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rental of rentals">
+      <td>
+        {{rental.$id }}
+      </td>
+      <td style="text-align: center">
+        {{rental.NumberOfRooms}}
+      </td>
+      <td  style="text-align: right">
+        {{rental.Price}}
+      </td>
+      <td  style="text-align: center">
+        {{rental.Description}}
+      </td>
+      <td  style="text-align: center">
+        {{rental.Address}}
+      </td>
+      <td  style="text-align: center">
+        <span *ngIf="rental.Adjustments.length > 0">
+            {{ rental.Adjustments.slice(-1)[0].OldPrice }} =>
+            {{ rental.Adjustments.slice(-1)[0].NewPrice }};
+            {{ rental.Adjustments.slice(-1)[0].Reason }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    Error: {{ errorMessage }}
+  </div>

@@ -22,7 +22,7 @@ export class RentalsComponent implements OnInit {
       rentals => {
         console.log(rentals);
         if (rentals) {
-          this.rentals = rentals.rentals;   // rental reducer action returns as object {data } so that's why its access as rentals.data
+          this.rentals = rentals.rentals;
           this.isInputShown = rentals.showInputForm;
         }
       }

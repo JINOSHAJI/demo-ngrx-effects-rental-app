@@ -68,10 +68,17 @@ ____________________________________________
 4. desired slice of state
 
 Subscribe:
+ 
 
-this.store.pipe(select('products')).subscribe(
-    products -> this.displayCode=products.showProductCode
-);
+    this.store.pipe(select('rentalReducer')).subscribe(
+      rentals => {
+        console.log(rentals);
+        if (rentals) {
+          this.rentals = rentals.rentals; 
+        }
+      }
+    );
+
 
 5. Receives notifications when the state changes
 

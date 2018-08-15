@@ -76,7 +76,12 @@ this.store.pipe(select('products')).subscribe(
 
 
 # Effects
+
+
 1. Reducers are pure functions. If we make http calls from reducers then it become impure functions. To preserve effects as pure functions we
 introduce the concept of effects.
-Effect will recieve an action then emit another action. The reducer in this instance listen for action which is emitted from effects.
+
+ Effect return a new observable which has another Action. The reducer in this instance listen for action which is emitted from effects. 
+ All crud causes side effects. It's so better to manage CRUD in effects.
+ Effects has an injected service, it  will communicate with service to make external requests.. 
 
